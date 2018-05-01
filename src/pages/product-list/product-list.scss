@@ -1,0 +1,30 @@
+page-product-list {
+
+  div{
+    vertical-align: middle;
+    text-align: center;
+  }
+
+  .text-stype{
+    color: #FFC0CB;
+    font-size: 14px
+  }
+
+  .p-name-text{
+    color: rgba(18, 19, 42, 0.96);
+    font-size: 24px
+  }
+
+  .p-dict-text{
+    color: #FF7F24;
+    font-size: 18px
+  }
+
+  .item-active{
+    background-color: #fff;
+    border-left-color: color($colors,secondary);
+    border-left-width: 4px;
+    border-left-style: solid;
+  }
+
+}

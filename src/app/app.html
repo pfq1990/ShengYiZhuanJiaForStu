@@ -1,16 +1,27 @@
 <ion-menu [content]="content">
-  <ion-header>
+  <!--<ion-header>
     <ion-toolbar>
       <ion-title>Menu</ion-title>
     </ion-toolbar>
-  </ion-header>
+  </ion-header>-->
 
-  <ion-content>
+  <ion-content class="menu-style">
     <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
+      <ion-item class="menu-style">
+        <h2>{{shopName}}</h2>
+        <h4>{{phone}}</h4>
+        <ion-badge item-end color="secondary">高级版</ion-badge>
+      </ion-item>
+      <button class="menu-style" menuClose ion-item *ngFor="let page of pages" (click)="openPage(page)">
+        <ion-icon item-start [name]="page.icon"></ion-icon>
+        {{page.title}}
       </button>
     </ion-list>
+    <button ion-button clear color="white" (click)="toSetting()">
+
+      <ion-icon name="settings" >设置</ion-icon>
+
+    </button>
   </ion-content>
 
 </ion-menu>

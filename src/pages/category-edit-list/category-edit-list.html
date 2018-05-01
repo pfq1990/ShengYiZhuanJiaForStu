@@ -1,0 +1,71 @@
+<!--
+  Generated template for the CategoryEditListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="secondary">
+    <ion-title>编辑商品分类</ion-title>
+  </ion-navbar>
+
+
+
+</ion-header>
+
+
+<ion-content no-padding>
+
+  <ion-list sliding>
+    <ion-list-header>
+      大分类
+    </ion-list-header>
+    <ion-item-sliding>
+      <ion-item>
+        <h2>{{activeCategory.name}}</h2>
+
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button clear color="danger" (click)="presentModal(activeCategory)">
+          <ion-icon name="create"></ion-icon>
+          编辑
+        </button>
+        <button ion-button clear color="secondary" (click)="showConfirm(activeCategory)">
+          <ion-icon name="remove-circle"></ion-icon>
+          删除
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+
+    <ion-list-header>
+      小分类
+    </ion-list-header>
+
+      <ion-item-sliding *ngFor="let category of activeSubCategories ">
+        <ion-item>
+          <h2>{{category.name}}</h2>
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button clear color="danger" (click)="presentModal(category)">
+            <ion-icon name="create"></ion-icon>
+            编辑
+          </button>
+          <button ion-button clear color="secondary" (click)="showConfirm(category)">
+            <ion-icon name="remove-circle"></ion-icon>
+            删除
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+
+
+  </ion-list>
+
+ <!-- <ion-list inset>
+    <div padding-horizontal margin-top="10px">
+      <button ion-button color="secondary" block (click)="save()">保存</button>
+    </div>
+
+  </ion-list>-->
+
+</ion-content>
+<copyright [bottom]="'5px'" ></copyright>

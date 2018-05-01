@@ -1,18 +1,147 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="secondary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>首页</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only [navPush]="categoryListPage" >
+        <ion-icon name="calendar"></ion-icon>
+      </button>
+      <button ion-button icon-only>
+        <ion-icon name="notifications"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content no-padding>
+  <img src="assets/images/androidbanner.png">
+  <ion-grid class="trading-grid">
+    <ion-row>
+      <ion-col>
+        <h6>今日</h6>
+        <h4>
+          <span>
+            {{todayData | number:'1.2-2'}}元
+          </span>
+        </h4>
+        <p>
+          比昨日:
+          <span [ngClass]="{'less-equal': yesterdayData <=0,'greater':  yesterdayData > 0}">{{yesterdayData | number:'1.2-2'}}</span>
+          <ion-icon name="arrow-round-up" *ngIf="yesterdayData > 0"></ion-icon>
+          <ion-icon name="arrow-round-forward" *ngIf="yesterdayData == 0"></ion-icon>
+          <ion-icon name="arrow-round-down" *ngIf="yesterdayData < 0"></ion-icon>
+        </p>
+      </ion-col>
+      <ion-col>
+        <h6>七日</h6>
+        <h4>{{thisWeekData | number:'1.2-2'}}<span>元</span></h4>
+        <p>
+          比同期：
+          <span [ngClass]="{'less-equal': lastWeekData <= 0,'greater': lastWeekData > 0}">{{lastWeekData | number:'1.2-2'}}</span>
+          <ion-icon name="arrow-round-up" *ngIf="lastWeekData > 0"></ion-icon>
+          <ion-icon name="arrow-round-forward" *ngIf="lastWeekData == 0"></ion-icon>
+          <ion-icon name="arrow-round-down" *ngIf="lastWeekData < 0"></ion-icon>
+        </p>
+      </ion-col>
+      <ion-col>
+        <h6>本月</h6>
+        <h4>{{thisMonthData | number:'1.2-2'}}<span>元</span></h4>
+        <p>比同期：
+          <span [ngClass]="{'less-equal': lastMonthData <= 0,'greater': lastMonthData > 0}">{{lastMonthData | number:'1.2-2'}}</span>
+          <ion-icon name="arrow-round-up" *ngIf="lastMonthData > 0"></ion-icon>
+          <ion-icon name="arrow-round-forward" *ngIf="lastMonthData == 0"></ion-icon>
+          <ion-icon name="arrow-round-down" *ngIf="lastMonthData < 0"></ion-icon>
+        </p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <ion-grid class="main-grid">
+    <ion-row class="quick-actions">
+      <ion-col class="quick-action-item">
+        <a class="shortcut" >
+          <ion-icon  name="appstore" [navPush]="addProductPage"></ion-icon>
+          <div>新增商品</div>
+        </a>
+      </ion-col>
+        <ion-col class="quick-action-item">
+          <a class="shortcut" >
+            <ion-icon  name="person-add"></ion-icon>
+            <div>新增会员</div>
+          </a>
+        </ion-col>
+      <ion-col class="quick-action-item">
+        <a class="shortcut" >
+          <ion-icon name="create"></ion-icon>
+          <div>收银记账</div>
+        </a>
+      </ion-col>
+      <ion-col class="quick-action-item">
+        <a class="shortcut" >
+          <ion-icon name="open"></ion-icon>
+          <div>支出管理</div>
+        </a>
+      </ion-col>
+    </ion-row>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+    <ion-row class="quick-actions">
+      <ion-col class="quick-action-item">
+        <a class="shortcut" >
+          <ion-icon name="photos" [navPush]="productListPage"></ion-icon>
+          <div>商品管理</div>
+        </a>
+      </ion-col>
+      <ion-col class="quick-action-item">
+        <a class="shortcut" >
+          <ion-icon name="people"></ion-icon>
+          <div>会员管理</div>
+        </a>
+      </ion-col>
+      <ion-col class="quick-action-item">
+        <a class="shortcut" >
+          <ion-icon name="search"></ion-icon>
+          <div>查询销售</div>
+        </a>
+      </ion-col>
+      <ion-col class="quick-action-item">
+        <a class="shortcut" >
+          <ion-icon name="trending-up"></ion-icon>
+          <div>智能分析</div>
+        </a>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="quick-actions">
+      <ion-col class="quick-action-item">
+        <a class="shortcut" >
+          <ion-icon name="shuffle"></ion-icon>
+          <div>供应管理</div>
+        </a>
+      </ion-col>
+      <ion-col class="quick-action-item">
+        <a class="shortcut" >
+          <ion-icon name="paper"></ion-icon>
+          <div>挂单</div>
+        </a>
+      </ion-col>
+      <ion-col class="quick-action-item">
+        <a class="shortcut" >
+          <ion-icon name="add"></ion-icon>
+          <div>高级功能</div>
+        </a>
+      </ion-col>
+      <ion-col class="quick-action-item">
+
+        <a class="shortcut" >
+          <ion-icon [navPush]="categoryListPage" name="albums"></ion-icon>
+          <div>商品分类</div>
+        </a>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
 </ion-content>
+<copyright [bottom]="'5px'" ></copyright>

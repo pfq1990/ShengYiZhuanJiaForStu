@@ -1,3 +1,61 @@
 page-home {
 
+  .less-equal{
+    color:color($colors,green);
+  }
+  .greater{
+    color:color($colors,danger);
+  }
+
+  .quick-actions + .quick-actions{
+    margin-top: -1px;
+  }
+  .quick-action-item {
+    height: 25vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ececec;
+  }
+  .quick-action-item + .quick-action-item{
+    margin-left: -1px;
+  }
+  .shortcut{
+    text-align: center;
+  }
+  .shortcut ion-icon{
+    font-size: 48px;
+  }
+  .shortcut div{
+    color: color($colors,dark);
+  }
+  a{
+    text-decoration: none;
+  }
+
+  .trading-grid{
+    margin-top: -3px;
+    background-color:#AEEEEE;
+  }
+
+  h6{
+    color:#8B2500;
+    font-family:"DFKai-SB";
+    font-weight:bold;
+    font-size: 24px;
+  }
+
+  h4{
+    font-family:"DFKai-SB";
+  }
+
+  p{
+    font-family:"FangSong";
+    font-size: 12px;
+  }
+  .main-grid{
+    margin-top: -3px;
+    background-color:#FAFAFA;
+  }
+
 }
